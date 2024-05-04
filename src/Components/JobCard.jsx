@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './JobCard.css';
-import logo from "./dummy-logo.png"
 
 function JobCard({ job }) {
     const [expanded, setExpanded] = useState(false);
@@ -16,7 +15,7 @@ function JobCard({ job }) {
         <div className="job-card">
             <div className="postedDate">⏳ Posted 24 days ago</div>
             <div className="top">
-                <img src={logo} alt="Company Logo" className="company-logo" />
+                <img src={job.logoUrl} alt="Company Logo" className="company-logo" />
                 <div className="top-left">
                     <p className="company-name"> {capitalized(job.companyName)}</p>
                     <p className="profile">{capitalized(job.jobRole)}</p>
