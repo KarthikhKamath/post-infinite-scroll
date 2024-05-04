@@ -1,0 +1,44 @@
+.job-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.location {
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+.expand-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.apply-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.apply-button:hover,
+.expand-button:hover {
+    background-color: #0056b3;
+}

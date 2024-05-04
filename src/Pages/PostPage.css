@@ -1,0 +1,27 @@
+
+.posts-page {
+    margin: 20px;
+}
+
+.job-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.loading {
+    margin-top: 20px;
+}
+
+.load-more-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.load-more-button:hover {
+    background-color: #0056b3;
+}
