@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './JobCard.css';
 
+// destructure the prop to use it in the current component
 function JobCard({ job }) {
-    const [expanded, setExpanded] = useState(false);
 
-    const toggleExpand = () => {
-        setExpanded(!expanded);
-    };
+    // function to capitalize the first letter of the word
     const capitalized = (word) => {
         return word[0].toUpperCase() + word.slice(1);
     }
 
+    // component
     return (
         <div className="job-card">
             <div className="postedDate">⏳ Posted 24 days ago</div>
