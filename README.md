@@ -1,7 +1,8 @@
 # Project Name
-Job disply with filter and infinite scroll
+Job display with filter and infinite scroll feature.
 
-# Deployed link : https://kart-infinite-jobs.netlify.app/
+# Deployed link 
+- https://kart-infinite-jobs.netlify.app/
 
 # Technology used
 React Vite, Vanilla Css
@@ -18,5 +19,17 @@ npm install
 
 - Run the project
 npm run dev
+
+
+# Images :
+
+![image](https://github.com/KarthikhKamath/post-infinite-scroll/assets/158549012/299f3af7-6c9e-47f4-b62f-ce4a28c312b9)
+
+![image](https://github.com/KarthikhKamath/post-infinite-scroll/assets/158549012/49f82775-48bc-440d-b630-a4260beda349)
+
+![image](https://github.com/KarthikhKamath/post-infinite-scroll/assets/158549012/f1bdf3d3-f1a7-4178-8b65-cc180405ac04)
+
+
+
 
 
