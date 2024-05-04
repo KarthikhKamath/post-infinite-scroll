@@ -42,21 +42,40 @@
 }
 
 
-select{
-    width: 150px;
+
+.filter-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px;
+    align-items: center;
+}
+
+.select {
+    width: 200px;
     font-size: 15px;
     font-weight: 300;
 }
-.filter-container{
-    display: flex;
-    gap: 20px;
-    margin: 30px;
+
+@media screen and (max-width: 600px) {
+    .select {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .filter-container{
+        justify-content: center;
+    }
 }
+
+
+
 .inputSearch{
     border: 1px solid grey;
     border-radius: 5px;
     font-size: 15px;
     padding: 9px 10px;
+    margin-bottom: 0 !important;
 }
 .inputSearch:focus{
     outline: none;
