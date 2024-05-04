@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PostPage.css';
 import JobCard from '../Components/JobCard';
-import Select from 'react-select'; // Import react-select
+import Select from 'react-select';
 
 function PostsPage() {
+    // State variables for managing jobs data, loading status, infinite scroll, filters, and search term
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
@@ -16,13 +17,14 @@ function PostsPage() {
     const [workTypeFilter, setWorkTypeFilter] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
 
-
+    // Fetch data when component mounts and set up scroll event listener
     useEffect(() => {
         getData();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // function to throttle scroll event listener
     const debounce = (func, delay) => {
         let timeoutId;
         return function (...args) {
@@ -33,6 +35,7 @@ function PostsPage() {
         };
     };
 
+    // Handle scroll event to load more data when user reaches bottom of page
     const handleScroll = debounce(() => {
         const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
         if (!loading && !loadingMore && scrollTop + clientHeight >= scrollHeight - 10) {
@@ -41,6 +44,7 @@ function PostsPage() {
         }
     }, 200);
 
+    // Fetch initial data
     const getData = async () => {
         setLoading(true);
         try {
@@ -56,6 +60,7 @@ function PostsPage() {
         }
     };
 
+    // Load more data when user scrolls to bottom
     const loadMoreData = async () => {
         setPage(prevPage => prevPage + 1);
         try {
@@ -71,6 +76,7 @@ function PostsPage() {
         }
     };
 
+    // Event handlers for dropdown filters
     const handleExperienceChange = (selectedOption) => {
         setExperienceFilter(selectedOption ? selectedOption.value : null);
     };
@@ -79,6 +85,7 @@ function PostsPage() {
         setRoleFilter(selectedOption ? selectedOption.value : null);
     };
 
+    // Filter jobs based on selected filters and search term
     const filteredJobs = jobs.filter(job =>
         (!experienceFilter || job.minExp <= experienceFilter) &&
         (!roleFilter || job.jobRole.toLowerCase().includes(roleFilter)) &&
@@ -90,7 +97,7 @@ function PostsPage() {
     );
 
 
-
+    // Dropdown options for locations
     const locations = [
         { value: "Bangalore", label: "Bangalore" },
         { value: "Mumbai", label: "Mumbai" },
@@ -100,6 +107,7 @@ function PostsPage() {
         { value: "Hyderabad", label: "Hyderabad" }
     ]
 
+    // Options for role dropdown grouped by category
     const roleOptions = [
         {
             label: "Engineering",
@@ -210,7 +218,7 @@ function PostsPage() {
         }
     ];
 
-
+    // Dropdown options for experience levels
     const experienceOptions = [
         { value: 1, label: '1 year' },
         { value: 2, label: '2 years' },
@@ -224,6 +232,7 @@ function PostsPage() {
         { value: 10, label: '10 years' }
     ];
 
+    // Dropdown options for base pay
     const basePay = [
         { value: 0, label: '0 USD' },
         { value: 10, label: '10 USD' },
@@ -238,6 +247,7 @@ function PostsPage() {
         { value: 100, label: '100 USD' }
     ]
 
+    // component
     return (
         <div className="posts-page">
             <div className="filter-container">
@@ -296,12 +306,14 @@ function PostsPage() {
 
             </div>
             <div className="job-cards-container">
+                {/* // map through filtered object and send the data as props to the card element component */}
                 {filteredJobs.length > 0 ? (
                     filteredJobs.map((job, index) => <JobCard key={index} job={job} />)
                 ) : (
                     <div className="no-jobs-message">No jobs found.</div>
                 )}
             </div>
+            {/* //loading animation  */}
             {(loading || loadingMore) && <div className="loading-spinner"></div>}
         </div>
     );
