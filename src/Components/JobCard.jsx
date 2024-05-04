@@ -1,6 +1,6 @@
-// JobCard.jsx
 import React, { useState } from 'react';
 import './JobCard.css';
+import logo from "./dummy-logo.png"
 
 function JobCard({ job }) {
     const [expanded, setExpanded] = useState(false);
@@ -8,20 +8,33 @@ function JobCard({ job }) {
     const toggleExpand = () => {
         setExpanded(!expanded);
     };
+    const capitalized = (word) => {
+        return word[0].toUpperCase() + word.slice(1);
+    }
 
     return (
         <div className="job-card">
-            <h2 className="job-title">{job.jobTitle}</h2>
-            <p className="company-name"><strong>Company:</strong> {job.companyName}</p>
-            <p className="location"><strong>Location:</strong> {job.location}</p>
-            <p className="description">
-                <strong>Description:</strong>
-                {
-                    job?.jobDetailsFromCompany?.slice(0, 100)}...
+            <div className="postedDate">⏳ Posted 24 days ago</div>
+            <div className="top">
+                <img src={logo} alt="Company Logo" className="company-logo" />
+                <div className="top-left">
+                    <p className="company-name"> {capitalized(job.companyName)}</p>
+                    <p className="profile">{capitalized(job.jobRole)}</p>
+                    <p className="location"> {capitalized(job.location)}</p>
+                </div>
+            </div>
+            <p className="salary">Estimated Salary: {job.minJdSalary} {job.salaryCurrencyCode} ✅</p>
+            <div className="description">
+                <div className='aboutCompany'>About Company:</div>
+                <div className='aboutUs'>About Us</div>
+                <div className='info'>{`${job?.jobDetailsFromCompany?.slice(0, 500)}...`}</div>
+                <div className="viewJob"><a href={job?.jdLink}>View Job</a></div>
+            </div>
+            <div className="experience"><strong>Minimum Experience</strong>
+                <div className='minExp'> {job.minExp} - {job.maxExp} years</div>
+            </div>
 
-            </p>
-            <p><strong>Experience Required:</strong> {job.minExp} - {job.maxExp} years</p>
-            <button className="apply-button">Apply</button>
+            <button className="apply-button">⚡ Easy Apply</button>
         </div>
     );
 }

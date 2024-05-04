@@ -1,44 +1,148 @@
 .job-card {
     border: 1px solid #ccc;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 20px;
     margin: 10px 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px !important;
+    color: rgba(0, 0, 0, 0.87);
+    position: relative; /* Added to position the logo relative to the card */
+    transition: all 0.5s;
+}
+.job-card:hover{
+     transform: scale(1.01)
+}
+.top{
+    display: flex;
+    gap: 10px;
+}
+
+.company-logo {
+    width: 40px; 
+    height: 40px;
+    border-radius: 30px;
 }
 
 .job-title {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-size: 1.4rem;
+    color: #007bff;
+    margin-bottom: 10px;
 }
 
-.company-name {
+.salary {
+    font-size: 14px !important;
+    font-weight: 500;
+    margin: 8px 0 !important;
+    color: rgb(77, 89, 106);
+}
+.aboutCompany{
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.87);
+}
+.aboutUs{
+    font-size: 14px;
     font-weight: bold;
-    margin-bottom: 5px;
 }
-
-.location {
-    margin-bottom: 5px;
+.profile{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 1.5;
+}
+.experience {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    color: #8b8b8b;
+    margin-top: 30px;
+}
+.location{
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+.company-name{
+    font-size: 13px;
+    color: #8b8b8b;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
 }
 
 .description {
     margin-bottom: 10px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden; /* Ensures the fade effect doesn't extend outside the description area */
 }
 
-.expand-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
+.description::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 40%; /* This percentage controls the height of the fade effect */
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+.expand-button, .apply-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 5px;
     cursor: pointer;
+    border: none;
+    margin-right: 5px;
+}
+.postedDate{
+    padding: 4px 6px;
+    box-shadow: rgba(6, 6, 6, 0.033) 0px 2px 6px 0px;
+    border-radius: 10px;
+    width: max-content;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 9px;
+    margin:10px 0px 20px 0;
+}
+.minExp{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.87);
 }
 
+.info{
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.viewJob{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: blue;
+    font-size: 13px;
+    z-index: 2;
+    font-weight: 300;
+    
+}
+.viewJob a{
+    text-decoration: none;
+}
+.viewJob a:visited{
+    color: blue;
+}
 .apply-button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    background-color: rgb(85, 239, 196);
+    color: black;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .apply-button:hover,
 .expand-button:hover {
-    background-color: #0056b3;
+    opacity: 0.8;
 }
