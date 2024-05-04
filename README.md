@@ -11,14 +11,22 @@ React Vite, Vanilla Css
 A website with beautiful UI which fetches data from Workday api and displays all the jobs. The filter mechanism allows users to filter only those jobs which user wants to see. The infinite scroll gives a beautiful user experience.
 
 ## Installation
-- Clone the project
+### 1. Clone the project
+
+```sh
 git clone https://github.com/KarthikhKamath/post-infinite-scroll.git
+```
+### 2. Install the packages
 
-- Install the packages
+```sh
 npm install
+```
 
-- Run the project
+### 3. Run the project
+
+```sh
 npm run dev
+```
 
 
 # Images :
