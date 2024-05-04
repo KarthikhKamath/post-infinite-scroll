@@ -36,7 +36,6 @@ function PostsPage() {
     const handleScroll = debounce(() => {
         const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
         if (!loading && !loadingMore && scrollTop + clientHeight >= scrollHeight - 10) {
-            console.log("Reached bottom of the page. Loading more data...");
             setLoadingMore(true);
             loadMoreData();
         }
@@ -62,9 +61,8 @@ function PostsPage() {
         try {
             const response = await axios.post("https://api.weekday.technology/adhoc/getSampleJdJSON", {
                 limit: 10,
-                offset: page * 10 // Update offset for next page
+                offset: page * 10
             });
-            console.log(response.data)
             setJobs(prevJobs => [...prevJobs, ...response.data.jdList]);
         } catch (error) {
             console.error("Error fetching more data:", error);
