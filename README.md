@@ -8,7 +8,7 @@ Job display with filter and infinite scroll feature.
 React Vite, Vanilla Css
 
 ## Description
-A website with beautiful UI which fetches data from Workday api and displays all the jobs. The filter mechanism allows users to filter only those jobs which user wants to see. The infinite scroll gives a beautiful user experience.
+A website with beautiful UI which fetches data from weekday api and displays all the jobs. The filter mechanism allows users to filter only those jobs which user wants to see. The infinite scroll gives a beautiful user experience.
 
 ## Installation
 ### 1. Clone the project
